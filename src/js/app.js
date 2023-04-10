@@ -1,4 +1,4 @@
-import card from "./utils/card.js";
+import cards from "./utils/cards.js";
 import greeting from "./components/greeting.js";
 import songDuration from "./components/songDuration.js";
 import search from "./components/search.js";
@@ -12,7 +12,7 @@ import {
 } from "./components/control.js";
 
 export default function app() {
-  card();
+  cards()
   clickCard();
   localStorageMusic();
   playPause();

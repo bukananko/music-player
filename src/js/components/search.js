@@ -1,17 +1,18 @@
+import listMusic from "../api/listMusic.js";
+
 export default function search() {
   const search = document.getElementById("search");
-  const specificSong = document.querySelectorAll("#specific-song");
+  const searchBtn = document.getElementById("searchBtn");
+  const listSong = document.getElementById("listSong");
 
-  search.addEventListener("input", () => {
-    const filter = search.value.toLowerCase();
+  search.addEventListener("keyup", function (e) {
+    if (e.keyCode === 13) {
+      listSong.innerHTML = `<img src="src/img/loading.gif" alt="loading...">`;
+      listMusic();
+    }
+  });
 
-    specificSong.forEach((result) => {
-      let text = result.textContent;
-      if (text.toLowerCase().includes(filter)) {
-        result.classList.remove("hidden");
-      } else {
-        result.classList.add("hidden");
-      }
-    });
+  searchBtn.addEventListener("click", async function () {
+    listMusic();
   });
 }

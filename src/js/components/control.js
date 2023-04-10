@@ -13,19 +13,18 @@ let musicIndex = Math.floor(Math.random() * playlist.length);
 
 export function localStorageMusic() {
   if (musicStorage) {
-    musicName.innerText = musicStorage.name;
     musicArtist.innerText = musicStorage.artist;
-    albumCover.src = `src/img/album/${musicStorage.img}.jpg`;
-    mainSong.src = `src/music/${musicStorage.song}.mp3`;
+    musicName.innerText = musicStorage.title;
+    albumCover.src = musicStorage.thumbnailUrl;
+    mainSong.src = musicStorage.song;
   }
 }
 
 export function loadMusic(index) {
-  musicName.innerText = playlist[index].name;
-  musicArtist.innerText = playlist[index].artist;
-  albumCover.src = `src/img/album/${playlist[index].img}.jpg`;
-  mainSong.src = `src/music/${playlist[index].song}.mp3`;
-  localStorage.setItem("music", JSON.stringify(playlist[index]));
+  // musicName.innerText = playlist[index].name;
+  // musicArtist.innerText = playlist[index].artist;
+  // albumCover.src = `src/img/album/${playlist[index].img}.jpg`;
+  // mainSong.src = `src/music/${playlist[index].song}.mp3`;
 }
 
 export function playMusic() {
@@ -40,12 +39,36 @@ export function pauseMusic() {
   mainSong.pause();
 }
 
-export function clickCard() {
-  const specificSong = document.querySelectorAll("#specific-song");
+export async function clickCard() {
+  const specificSongApi = document.querySelectorAll("#specific-song-api");
 
-  for (let i = 0; i < playlist.length; i++) {
-    specificSong[i].addEventListener("click", function () {
-      loadMusic(i);
+  const firstRender = `https://pipedapi.kavin.rocks/search?q=billie eilish&filter=music_songs`;
+
+  const response = await fetch(firstRender);
+  const result = await response.json();
+
+  for (let i = 0; i < specificSongApi.length; i++) {
+    specificSongApi[i].addEventListener("click", async function () {
+      const endpoint = `https://pipedapi.kavin.rocks/streams/${result.items[
+        i
+      ].url.slice(9)}`;
+
+      const responseEndopointo = await fetch(endpoint);
+      const resultEndopointo = await responseEndopointo.json();
+
+      const { uploader, title, thumbnailUrl, audioStreams } = resultEndopointo;
+
+      const artist = uploader.slice(0, -7);
+      const song = audioStreams[0].url;
+      localStorage.setItem(
+        "music",
+        JSON.stringify({ artist, song, title, thumbnailUrl })
+      );
+
+      musicArtist.innerText = artist;
+      musicName.innerText = title;
+      albumCover.src = thumbnailUrl;
+      mainSong.src = song;
       playMusic();
     });
   }

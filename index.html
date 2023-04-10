@@ -11,7 +11,7 @@
       rel="shortcut icon"
       href="src/img/aiohtoprofile.png"
       type="image/x-icon" />
-    <link href="/src/css/build.css" rel="stylesheet" />
+    <link href="/dist/output.css" rel="stylesheet" />
     <title>Music Player But Only My Music</title>
   </head>
   <body>
@@ -23,10 +23,11 @@
           placeholder="Search..."
           type="text"
           class="outline-none border border-black rounded-full py-2 px-4 pr-10 w-48 lg:w-56" />
-        <i
-          class="absolute top-2 right-2 material-icons pointer-events-none text-gray-500"
-          >search</i
-        >
+        <button id="searchBtn">
+          <i class="absolute top-2 right-2 material-icons text-gray-500"
+            >search</i
+          >
+        </button>
       </div>
 
       <p id="greeting" class="font-bold sm:text-xl"></p>
@@ -39,7 +40,7 @@
       </h1>
 
       <ul
-        id="cards"
+        id="listSong"
         class="flex gap-y-5 sm:gap-5 flex-wrap justify-evenly sm:justify-start"></ul>
     </section>
 
@@ -85,7 +86,7 @@
             <div
               id="progress-area"
               class="h-1 md:w-96 w-full rounded-full bg-gray-300 flex items-center hover:cursor-pointer absolute top-0 left-0 md:relative">
-              <audio id="main-song" src=""></audio>
+              <audio id="main-song" src="" type="audio/mp4"></audio>
               <div
                 id="progress-bar"
                 class="h-1 relative bg-black rounded-full flex justify-end items-center before:content-[''] before:absolute before:w-2 before:h-2 before:rounded-full before:bg-black"></div>
