@@ -6,7 +6,7 @@ export default function greeting() {
     greeting.innerText = "Good Morning";
   } else if (hour >= 10 && hour < 19) {
     greeting.innerText = "Good Afternoon";
-  } else if (hour >= 19 && hour < 5) {
+  } else if (hour >= 19 || hour < 5) {
     greeting.innerText = "Good Night";
   }
 }

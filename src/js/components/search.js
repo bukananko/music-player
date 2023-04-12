@@ -9,6 +9,7 @@ export default function search() {
     if (e.keyCode === 13) {
       listSong.innerHTML = `<img src="src/img/loading.gif" alt="loading...">`;
       listMusic();
+      search.value = "";
     }
   });
 
