@@ -1,10 +1,7 @@
 import listMusic from "../api/listMusic.js";
+import { search, searchBtn, listSong } from "../constants/constants.js";
 
-export default function search() {
-  const search = document.getElementById("search");
-  const searchBtn = document.getElementById("searchBtn");
-  const listSong = document.getElementById("listSong");
-
+export default function searchMusic() {
   search.addEventListener("keyup", function (e) {
     if (e.keyCode === 13) {
       listSong.innerHTML = `<img src="src/img/loading.gif" alt="loading...">`;
@@ -14,6 +11,8 @@ export default function search() {
   });
 
   searchBtn.addEventListener("click", async function () {
-    listMusic();
+    if (search.value) {
+      listMusic();
+    }
   });
 }

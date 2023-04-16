@@ -1,19 +1,21 @@
-const musicStorage = JSON.parse(localStorage.getItem("music"));
+import {
+  mainSong,
+  albumCover,
+  musicArtist,
+  controls,
+  playPauseBtn,
+  repeatBtn,
+} from "../constants/constants.js";
+import marquee from "./marquee.js";
 
-const musicName = document.getElementById("song-name");
-const musicArtist = document.getElementById("song-artist");
-const albumCover = document.getElementById("album-cover");
-const mainSong = document.getElementById("main-song");
-const controls = document.getElementById("controls");
-const playPauseBtn = document.getElementById("play-pause");
-const repeatBtn = document.getElementById("repeat");
+const musicStorage = JSON.parse(localStorage.getItem("music"));
 
 // let musicIndex = Math.floor(Math.random() * specificSongApi.length);
 
 export function localStorageMusic() {
   if (musicStorage) {
     musicArtist.innerText = musicStorage.artist;
-    musicName.innerText = musicStorage.title;
+    marquee(musicStorage.title);
     albumCover.src = musicStorage.thumbnailUrl;
     mainSong.src = musicStorage.song;
   }
@@ -52,18 +54,18 @@ export function playPause() {
   });
 }
 
-export function favorite() {
-  const favorite = document.getElementById("favorite");
+// export function favorite() {
+//   const favorite = document.getElementById("favorite");
 
-  favorite.addEventListener("click", function () {
-    let getText = favorite.innerText;
-    switch (getText) {
-      case "favorite_border":
-        favorite.innerText = "favorite";
-        break;
-      case "favorite":
-        favorite.innerText = "favorite_border";
-        break;
-    }
-  });
-}
+//   favorite.addEventListener("click", function () {
+//     let getText = favorite.innerText;
+//     switch (getText) {
+//       case "favorite_border":
+//         favorite.innerText = "favorite";
+//         break;
+//       case "favorite":
+//         favorite.innerText = "favorite_border";
+//         break;
+//     }
+//   });
+// }

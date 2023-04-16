@@ -1,7 +1,7 @@
 import { playMusic } from "./control.js";
+import { mainSong } from "../constants/constants.js";
 
 export default function songDuration() {
-  const mainSong = document.getElementById("main-song");
   const progressBar = document.getElementById("progress-bar");
   const progressArea = document.getElementById("progress-area");
 

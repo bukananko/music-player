@@ -1,5 +1,10 @@
 export default function greeting() {
   const greeting = document.getElementById("greeting");
+  greeting.addEventListener("click", function () {
+    const filterHidden = document.getElementById("filter-hidden");
+
+    filterHidden.classList.toggle("hidden");
+  });
 
   let hour = new Date().getHours();
   if (hour >= 5 && hour < 10) {

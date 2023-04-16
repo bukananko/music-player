@@ -1,7 +1,7 @@
 // import cards from "./utils/cards.js";
 import greeting from "./components/greeting.js";
 import songDuration from "./components/songDuration.js";
-import search from "./components/search.js";
+import searchMusic from "./components/search.js";
 import {
   clickCard,
   localStorageMusic,
@@ -15,5 +15,5 @@ export default function app() {
   playPause();
   greeting();
   songDuration();
-  search();
+  searchMusic();
 }
