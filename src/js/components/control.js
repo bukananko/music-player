@@ -10,8 +10,6 @@ import marquee from "./marquee.js";
 
 const musicStorage = JSON.parse(localStorage.getItem("music"));
 
-// let musicIndex = Math.floor(Math.random() * specificSongApi.length);
-
 export function localStorageMusic() {
   if (musicStorage) {
     musicArtist.innerText = musicStorage.artist;
@@ -33,8 +31,6 @@ export function pauseMusic() {
   mainSong.pause();
 }
 
-export async function clickCard() {}
-
 repeatBtn.addEventListener("click", function () {
   let getText = repeatBtn.innerText;
   switch (getText) {
@@ -45,6 +41,16 @@ repeatBtn.addEventListener("click", function () {
       repeatBtn.innerText = "repeat";
       break;
   }
+
+  mainSong.addEventListener("ended", function () {
+    let getText = repeatBtn.innerText;
+    switch (getText) {
+      case "repeat_one":
+        mainSong.currentTime = 0;
+        playMusic();
+        break;
+    }
+  });
 });
 
 export function playPause() {
@@ -69,3 +75,10 @@ export function playPause() {
 //     }
 //   });
 // }
+
+// window.onscroll = function () {
+//   const pageHeight = Math.max(document.documentElement.scrollHeight);
+//   if (window.innerHeight + window.scrollY > pageHeight) {
+//     console.log("sjkbdskjbsdbd");
+//   }
+// };
