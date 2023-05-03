@@ -3,14 +3,21 @@ import { mainSong } from "../constants/constants.js";
 
 export default function songDuration() {
   const progressBar = document.getElementById("progress-bar");
-  const progressArea = document.getElementById("progress-area");
 
   mainSong.addEventListener("timeupdate", function (e) {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;
-    let progressWidth = (currentTime / duration) * 100;
 
-    progressBar.style.width = `${progressWidth}%`;
+    let progressWidth = (currentTime * 100) / duration;
+
+    progressBar.style.backgroundSize = `${progressWidth}%`;
+
+    progressBar.addEventListener("input", function () {
+      let songDuration = (mainSong.duration * progressBar.value) / 100;
+
+      mainSong.currentTime = songDuration;
+      playMusic();
+    });
 
     let musicCurrentTime = document.getElementById("currentTime");
     let musicDuration = document.getElementById("duration");
@@ -32,14 +39,5 @@ export default function songDuration() {
       currentSec = `0${currentSec}`;
     }
     musicCurrentTime.innerText = `${currentMin}:${currentSec}`;
-  });
-
-  progressArea.addEventListener("click", function (e) {
-    let width = progressArea.clientWidth;
-    let clicked = e.offsetX;
-    let songDurarion = mainSong.duration;
-
-    mainSong.currentTime = (clicked / width) * songDurarion;
-    playMusic();
   });
 }

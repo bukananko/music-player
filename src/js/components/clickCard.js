@@ -1,3 +1,4 @@
+import loadRelatedMusic from "./loadRelatedMusic.js";
 import getStreamUrl from "../api/getStreamUrl.js";
 import { playMusic } from "../components/control.js";
 import marquee from "../components/marquee.js";
@@ -6,17 +7,19 @@ import {
   musicArtist,
   albumCover,
   repeatBtn,
+  next,
+  prev,
 } from "../constants/constants.js";
 
 export default function clickCard(specificSong, mergedNextPage) {
   specificSong.forEach((card, index) => {
     card.addEventListener("click", async function () {
-      const resultEndopointo = await getStreamUrl(mergedNextPage, index);
-
       const { uploader, title, thumbnailUrl, audioStreams, relatedStreams } =
-        resultEndopointo;
+        await getStreamUrl(mergedNextPage, index);
 
-      const artist = uploader.slice(0, -7);
+      const artist = uploader.includes("- Topic")
+        ? uploader.slice(0, -7)
+        : uploader;
       const song = audioStreams[0].url;
       localStorage.setItem(
         "music",
@@ -29,62 +32,26 @@ export default function clickCard(specificSong, mergedNextPage) {
       mainSong.src = song;
       playMusic();
 
-      let musicIndex = Math.floor(Math.random() * relatedStreams.length);
-
-      async function loadMusic(i) {
-        if (relatedStreams[i].type == "playlist") {
-          i++;
-        }
-
-        const endpoint = `https://pipedapi.kavin.rocks/streams/${relatedStreams[
-          i
-        ].url.slice(9)}`;
-
-        const responseLoad = await fetch(endpoint);
-        const loadSong = await responseLoad.json();
-
-        const { uploader, title, thumbnailUrl, audioStreams } = loadSong;
-
-        const artist = uploader.includes("- Topic")
-          ? uploader.slice(0, -7)
-          : uploader;
-        const song = audioStreams[0].url;
-
-        musicArtist.innerText = artist;
-        marquee(title);
-        albumCover.src = thumbnailUrl;
-        mainSong.src = song;
-        playMusic();
-      }
+      let musicIndex = -1;
 
       function nextMusic() {
-        musicIndex++;
-        if (musicIndex == relatedStreams.length) {
-          musicIndex = 0;
-        }
-        loadMusic(musicIndex);
-        playMusic();
+        musicIndex == relatedStreams.length - 1
+          ? (musicIndex = 0)
+          : musicIndex++;
+        loadRelatedMusic(musicIndex, relatedStreams);
       }
 
       function prevMusic() {
-        if (musicIndex == 0) {
+        if (musicIndex == 0 || musicIndex == -1) {
           musicIndex = relatedStreams.length;
         }
         musicIndex--;
-        loadMusic(musicIndex);
-        playMusic();
+        loadRelatedMusic(musicIndex, relatedStreams);
       }
 
-      const next = document.getElementById("next");
-      const prev = document.getElementById("previous");
+      next.addEventListener("click", nextMusic);
 
-      next.addEventListener("click", function () {
-        nextMusic();
-      });
-
-      prev.addEventListener("click", function () {
-        prevMusic();
-      });
+      prev.addEventListener("click", prevMusic);
 
       mainSong.addEventListener("ended", function () {
         let getText = repeatBtn.innerText;

@@ -1,14 +1,17 @@
-import greeting from "./components/greeting.js";
+import greetings from "./components/greetings.js";
 import songDuration from "./components/songDuration.js";
 import searchInput from "./components/searchInput.js";
-import { localStorageMusic, playPause } from "./components/control.js";
-import cardFirstRender from "./firstRender/cardFirstRender.js";
+import { playPause } from "./components/control.js";
+import firstRender from "./firstRender/firstRender.js";
+import handleDarkMode from "./components/handleDarkMode.js";
+import showAboutMenu from "./components/showAboutMenu.js";
 
 export default function app() {
-  cardFirstRender();
-  localStorageMusic();
+  firstRender();
   playPause();
-  greeting();
+  greetings();
   songDuration();
   searchInput();
+  handleDarkMode();
+  showAboutMenu();
 }

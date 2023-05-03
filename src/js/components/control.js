@@ -10,13 +10,11 @@ import marquee from "./marquee.js";
 
 const musicStorage = JSON.parse(localStorage.getItem("music"));
 
-export function localStorageMusic() {
-  if (musicStorage) {
-    musicArtist.innerText = musicStorage.artist;
-    marquee(musicStorage.title);
-    albumCover.src = musicStorage.thumbnailUrl;
-    mainSong.src = musicStorage.song;
-  }
+if (musicStorage) {
+  musicArtist.innerText = musicStorage.artist;
+  marquee(musicStorage.title);
+  albumCover.src = musicStorage.thumbnailUrl;
+  mainSong.src = musicStorage.song;
 }
 
 export function playMusic() {
@@ -60,25 +58,16 @@ export function playPause() {
   });
 }
 
-// export function favorite() {
-//   const favorite = document.getElementById("favorite");
+const favorite = document.getElementById("favorite");
 
-//   favorite.addEventListener("click", function () {
-//     let getText = favorite.innerText;
-//     switch (getText) {
-//       case "favorite_border":
-//         favorite.innerText = "favorite";
-//         break;
-//       case "favorite":
-//         favorite.innerText = "favorite_border";
-//         break;
-//     }
-//   });
-// }
-
-// window.onscroll = function () {
-//   const pageHeight = Math.max(document.documentElement.scrollHeight);
-//   if (window.innerHeight + window.scrollY > pageHeight) {
-//     console.log("sjkbdskjbsdbd");
-//   }
-// };
+favorite.addEventListener("click", function () {
+  let getText = favorite.innerText;
+  switch (getText) {
+    case "favorite_border":
+      favorite.innerText = "favorite";
+      break;
+    case "favorite":
+      favorite.innerText = "favorite_border";
+      break;
+  }
+});

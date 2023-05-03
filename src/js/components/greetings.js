@@ -1,9 +1,12 @@
-export default function greeting() {
-  const greeting = document.getElementById("greeting");
+import { greeting, songResult } from "../constants/constants.js";
+
+export default function greetings() {
   greeting.addEventListener("click", function () {
     const filterHidden = document.getElementById("filter-hidden");
-
-    filterHidden.classList.toggle("hidden");
+    if (!listSong.classList.contains("hidden")) {
+      songResult.classList.toggle("hidden");
+      filterHidden.classList.toggle("hidden");
+    }
   });
 
   let hour = new Date().getHours();

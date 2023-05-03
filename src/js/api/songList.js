@@ -1,10 +1,11 @@
 import getSongs from "./getSongs.js";
 import getEncodedUrl from "./getEncodedUrl.js";
-import cards from "./cards.js";
+import cards from "../components/cards.js";
 import clickCard from "../components/clickCard.js";
 import goNextPage from "./goNextPage.js";
+import { songResult } from "../constants/constants.js";
 
-export default async function listMusic() {
+export default async function songList() {
   let nextPageUrl = null;
 
   const songs = await getSongs();
@@ -20,4 +21,6 @@ export default async function listMusic() {
   clickCard(specificSong, mergedNextPage);
 
   goNextPage(nextPageUrl, mergedNextPage);
+
+  songResult.innerText = `Result: ${specificSong.length}`;
 }

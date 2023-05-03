@@ -1,39 +1,157 @@
 const playlist = [
   {
-    artist: "NIKI ",
-    song: "https://pipedproxy-bom-2.kavin.rocks/videoplayback?expire=1681919187&ei=c7g_ZMLwL9aX4t4Po_WmCA&ip=140.238.251.167&id=o-ANMSnPMn502VC7ucReG3avJUIXnQTJWFsZetggn3MGyc&itag=139&source=youtube&requiressl=yes&mh=7z&mm=31%2C26&mn=sn-cvh76nll%2Csn-h557sn66&ms=au%2Conr&mv=m&mvi=4&pl=26&gcr=in&initcwndbps=3565000&spc=99c5CQxUmiq2jPKuN0MaHOpk5gJyMiA&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=1046445&dur=171.355&lmt=1565936445097772&mt=1681897495&fvip=3&keepalive=yes&fexp=24007246&c=ANDROID&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIgPaUtd4m4H1wHKnO2MdPqliR8bcP-mOzbNCXsuLYH4NECIQCTe5FIZO5au1QyNwUVEna_s5cr6r_JFQhmltFJPNeluw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgALZgzRIXo4-nTEPTnSgiz-VcKFWX0nfEKUU6TBokoU0CIQCvO-8rKYCeLF3MWJWqfBNFmzSZxn6W4uzAzfHYKpikfw%3D%3D&cpn=zjJv0r8lbyoT5ahq&host=rr4---sn-cvh76nll.googlevideo.com",
-    thumbnailUrl:
-      "https://pipedproxy.kavin.rocks/vi_webp/etZ6D39fVkg/maxresdefault.webp?host=i.ytimg.com",
-    title: "lowkey",
-  },
-  {
-    artist: "NIKI ",
-    song: "https://pipedproxy-bom.kavin.rocks/videoplayback?expire=1681920633&ei=Gb4_ZPTVLtKj9fwP5oiC4As&ip=140.238.245.97&id=o-ADxSQUktVRHK8S5E6F4eH9rGBSz68qF0y6OqFPKFsZSl&itag=139&source=youtube&requiressl=yes&mh=8c&mm=31%2C29&mn=sn-cvh7knzl%2Csn-cvh76nlz&ms=au%2Crdu&mv=m&mvi=4&pl=21&gcr=in&initcwndbps=13841250&spc=99c5CbnFNksYfa-WzXLPlzVfhsGcwI0&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=2050965&dur=336.050&lmt=1659302674022488&mt=1681898214&fvip=5&keepalive=yes&fexp=24007246&c=ANDROID&txp=2318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAJUzRmml6t09RqMXmng-LyjUS4dlFR8e91bZgOYud7a8AiAI9U1psVxyEoZiCiMj_diUhzUXFEn9SCtZfofrqAp_kw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAJvTIGpPQIMfH-63kWr5vjPbeyoe2wiVVQlY8tWmtRw6AiAkE9C_ALYFNiy1riyFeFTxzsmt7W365UWqjO0MjisAeA%3D%3D&cpn=rGtDttglpFkbbGth&host=rr4---sn-cvh7knzl.googlevideo.com",
-    title: "Oceans & Engines",
-    thumbnailUrl:
+    thumbnail:
       "https://pipedproxy.kavin.rocks/vi_webp/ZM3bRj45EBU/maxresdefault.webp?host=i.ytimg.com",
+    song: "ZM3bRj45EBU",
+    artist: "NIKI",
+    title: "Oceans & Engines",
   },
   {
-    artist: "NIKI ",
-    song: "https://pipedproxy-bom-2.kavin.rocks/videoplayback?expire=1681917481&ei=ybE_ZNvxI8an4t4PsoiPgAQ&ip=140.238.251.167&id=o-ABgE7C8vfaXQrXgd9H5GrFuYglC1pbMbDcNC9h8T2R7r&itag=139&source=youtube&requiressl=yes&mh=fk&mm=31%2C26&mn=sn-cvh7knzz%2Csn-h557snzr&ms=au%2Conr&mv=m&mvi=4&pl=26&gcr=in&initcwndbps=300000&spc=99c5CR7G80Bfa-Yj-kfK4tIG_zZp2Zw&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=1337848&dur=219.039&lmt=1659302663145307&mt=1681895576&fvip=5&keepalive=yes&fexp=24007246&c=ANDROID&txp=2318224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cgcr%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIgGeEA6JD9fplvhRWb2NxrhJE3RWxH8xmyxyZ8haIshSICIQDxpNL3fwUe1uvleudrhEJAxmM0zFMkOEEM5DCz3UaCKQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAPHfNVZLDrQsak7KQ1TYSuHwEFkX0aaNrGJeVC1cCCzmAiA3dh_BcIL1N17xXhjOEhEdiWoYp8NqRuuqmleVTp1nBw%3D%3D&cpn=_Us9wfCWgRfcDQOm&host=rr4---sn-cvh7knzz.googlevideo.com",
-    title: "High School in Jakarta",
-    thumbnailUrl:
-      "https://pipedproxy.kavin.rocks/vi_webp/oJaiBfLUwgM/maxresdefault.webp?host=i.ytimg.com",
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/FvAKtaH6Yzw/maxresdefault.webp?host=i.ytimg.com",
+    song: "FvAKtaH6Yzw",
+    artist: "Mrld",
+    title: "An Art Gallery Could Never Be As Unique As You",
   },
   {
-    artist: "TikT",
-    song: "https://pipedproxy-bom-2.kavin.rocks/videoplayback?expire=1681922217&ei=ScQ_ZLqGNsj54-EPuvuqyAY&ip=140.238.251.167&id=o-ACgcD362_Wt9aR41UHf_EDiwWZgz5TAxuqkKRQWK9zvs&itag=139&source=youtube&requiressl=yes&mh=_l&mm=31%2C26&mn=sn-cvh7knzz%2Csn-h5576nsy&ms=au%2Conr&mv=m&mvi=4&pl=26&initcwndbps=10190000&spc=99c5CV2Ws0HCP-T5HVUdXnaCmnk0S0w&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=1172837&dur=192.214&lmt=1677021216735989&mt=1681900141&fvip=2&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAJjd48SwNHLeg1eZ4jE4XGINAT1bSsao3_tkDCOMeJiNAiA6Olc84mMLgfm6QTP35Sz9EKTdTo2dGbrl7wLmYijVBQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgZNJmfaaG9CT11oGh-TOmwDWhEosbJgkbZi97RccAWRMCIHTTigdD8zAfZ5tueZgHQ4qZOsHGNpnX2-gbIByRdSzN&cpn=W3IbgqmTaDZRh2qN&host=rr4---sn-cvh7knzz.googlevideo.com",
-    title:
-      "The Weeknd - Reminder (sped up/tiktok version) Lyrics | got a sweet asian chick she go lo mein",
-    thumbnailUrl:
-      "https://pipedproxy.kavin.rocks/vi/ESBefWYAKCk/maxresdefault.jpg?host=i.ytimg.com",
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/8iu-iQiQFRQ/maxresdefault.webp?host=i.ytimg.com",
+    song: "8iu-iQiQFRQ",
+    artist: "GANGGA",
+    title: "Blue Jeans",
   },
   {
-    artist: "NIKI ",
-    song: "https://pipedproxy-bom-2.kavin.rocks/videoplayback?expire=1681920701&ei=Xb4_ZIa4C8eS4t4P-rS0CA&ip=140.238.251.167&id=o-AFOlLUBD1Dp3o_iyBLSWd3bo1Ckq6dB20Mss1MLdvpTd&itag=139&source=youtube&requiressl=yes&mh=E9&mm=31%2C29&mn=sn-cvh76nld%2Csn-cvh7knzk&ms=au%2Crdu&mv=m&mvi=2&pl=26&pcm2=no&gcr=in&initcwndbps=13841250&spc=99c5CY4XlfkgzhcWWv_8JCdSjThX6R0&vprv=1&svpuc=1&mime=audio%2Fmp4&gir=yes&clen=1317210&dur=215.686&lmt=1639540087820799&mt=1681898214&fvip=5&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cpcm2%2Cgcr%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRAIgftvOQy2bWQsMYuwWP2wtka223SJkkW66C4Ec4IzYBb0CICctHZOmq4k1h-ZCWj02bdXrpK3tVhD2BJMvlb8nE-lS&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRAIgfHfq40ivt91NMQy45VSNFaaG2fhjkfC5zcQvdhc1Cm4CIBvxBLv7zAKjiGAcBX3ZtY_skRfvLoqHy85xLEHPVhjF&cpn=5ZO3QXmEn0AmItks&host=rr2---sn-cvh76nld.googlevideo.com",
-    title: "Every Summertime",
-    thumbnailUrl:
-      "https://pipedproxy.kavin.rocks/vi_webp/UyMvBWVGaOA/maxresdefault.webp?host=i.ytimg.com",
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/F-WFU4e1dFo/maxresdefault.webp?host=i.ytimg.com",
+    song: "F-WFU4e1dFo",
+    artist: "Arash Buana",
+    title: "if u could see me cryin' in my room",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/hEFiGjozPk0/maxresdefault.webp?host=i.ytimg.com",
+    song: "hEFiGjozPk0",
+    artist: "Tarin",
+    title: "Going Home",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi/AgbcJTmOZjc/maxresdefault.jpg?host=i.ytimg.com",
+    song: "AgbcJTmOZjc",
+    artist: "Gustixa",
+    title: "Fallen Kingdom",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/C0ruAy8TpPo/maxresdefault.webp?host=i.ytimg.com",
+    song: "C0ruAy8TpPo",
+    artist: "Laufey",
+    title: "Let You Break My Heart Again",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/OOUD3eo4EWg/maxresdefault.webp?host=i.ytimg.com",
+    song: "OOUD3eo4EWg",
+    artist: "Arash Buana",
+    title: "we'll be okay, for today (feat. Anya Taroreh)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/kRs3MO2kHt8/maxresdefault.webp?v=5e8b7bb7&host=i.ytimg.com",
+    song: "kRs3MO2kHt8",
+    artist: "Ariana Grande",
+    title: "Touch It (Sad Version)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/WiinVuzh4DA/maxresdefault.webp?host=i.ytimg.com",
+    song: "WiinVuzh4DA",
+    artist: "Billie Eilish",
+    title: "i love you",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/CuuOPUM90gs/maxresdefault.webp?host=i.ytimg.com",
+    song: "CuuOPUM90gs",
+    artist: "Chelsea Cutler",
+    title: "Your Shirt",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/AdEKgwUqPKI/maxresdefault.webp?host=i.ytimg.com",
+    song: "AdEKgwUqPKI",
+    artist: "SZA",
+    title: "Kill Bill",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/1jbp5mb6AUU/maxresdefault.webp?host=i.ytimg.com",
+    song: "1jbp5mb6AUU",
+    artist: "Daniel Caesar",
+    title: "Best Part (feat. H.E.R.)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/HZbsLxL7GeM/maxresdefault.webp?host=i.ytimg.com",
+    song: "HZbsLxL7GeM",
+    artist: "Ruth B.",
+    title: "Dandelions",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/tEnT5x4ow5I/maxresdefault.webp?host=i.ytimg.com",
+    song: "tEnT5x4ow5I",
+    artist: "Stephanie Poetri",
+    title: "I Love You 3000",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/kPlSyYtE63M/maxresdefault.webp?host=i.ytimg.com",
+    song: "kPlSyYtE63M",
+    artist: "Stephen Sanchez",
+    title: "Until I Found You (Em Beihold Version)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/WMTqf7PSjHw/maxresdefault.webp?host=i.ytimg.com",
+    song: "WMTqf7PSjHw",
+    artist: "Arctic Monkeys",
+    title: "i wanna be yours - (sped up)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/xMNZFgknH2M/maxresdefault.webp?host=i.ytimg.com",
+    song: "xMNZFgknH2M",
+    artist: "HONNE",
+    title: "Location Unknown ◐ (feat. BEKA) (Brooklyn Session)",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi/TA1W-pHNKl8/maxresdefault.jpg?host=i.ytimg.com",
+    song: "TA1W-pHNKl8",
+    artist: "Christina Perri",
+    title: "A Thousand Years",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi/s5xWEk_TMFQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCg0_OszmMd_0xLKVsfut0eOLpAuQ&host=i.ytimg.com",
+    song: "s5xWEk_TMFQ",
+    artist: "Aziz Hedra",
+    title: "somebody's pleasure - sped up",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/5YkYwiSJKDI/maxresdefault.webp?host=i.ytimg.com",
+    song: "5YkYwiSJKDI",
+    artist: "yuji",
+    title: "Old Love",
+  },
+  {
+    thumbnail:
+      "https://pipedproxy.kavin.rocks/vi_webp/f1De87ETXwo/maxresdefault.webp?host=i.ytimg.com",
+    song: "f1De87ETXwo",
+    artist: "George Benson",
+    title: "Nothing's Gonna Change My Love for You",
   },
 ];
 
