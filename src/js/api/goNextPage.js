@@ -4,11 +4,11 @@ import clickCard from "../components/clickCard.js";
 import nextPageCard from "../components/nextPageCard.js";
 import { songResult } from "../constants/constants.js";
 
-export default async function goNextPage(nextPageUrl, mergedNextPage) {
+export default function goNextPage(nextPageUrl, mergedNextPage) {
   window.onscroll = async function () {
     const pageHeight = Math.max(document.documentElement.scrollHeight);
 
-    if (window.innerHeight + window.scrollY > pageHeight) {
+    if (window.innerHeight + window.scrollY > pageHeight - 1) {
       const nextPage = await getNextPage(nextPageUrl);
       nextPageUrl = getEncodedUrl(nextPage.nextpage);
       nextPageCard(nextPage);
