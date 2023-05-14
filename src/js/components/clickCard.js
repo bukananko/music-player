@@ -10,8 +10,9 @@ import {
   next,
   prev,
 } from "../constants/constants.js";
+import handleFavorite from "./handleFavorite.js";
 
-export default function clickCard(specificSong, mergedNextPage) {
+export default function clickCard(specificSong, mergedNextPage, favoriteUrls) {
   specificSong.forEach((card, index) => {
     card.addEventListener("click", async function () {
       const { uploader, title, thumbnailUrl, audioStreams, relatedStreams } =
@@ -21,10 +22,6 @@ export default function clickCard(specificSong, mergedNextPage) {
         ? uploader.slice(0, -7)
         : uploader;
       const song = audioStreams[0].url;
-      localStorage.setItem(
-        "music",
-        JSON.stringify({ artist, song, title, thumbnailUrl })
-      );
 
       musicArtist.innerText = artist;
       marquee(title);
@@ -38,7 +35,7 @@ export default function clickCard(specificSong, mergedNextPage) {
         musicIndex == relatedStreams.length - 1
           ? (musicIndex = 0)
           : musicIndex++;
-        loadRelatedMusic(musicIndex, relatedStreams);
+        loadRelatedMusic(musicIndex, relatedStreams, favoriteUrls);
       }
 
       function prevMusic() {
@@ -46,7 +43,7 @@ export default function clickCard(specificSong, mergedNextPage) {
           musicIndex = relatedStreams.length;
         }
         musicIndex--;
-        loadRelatedMusic(musicIndex, relatedStreams);
+        loadRelatedMusic(musicIndex, relatedStreams, favoriteUrls);
       }
 
       next.addEventListener("click", nextMusic);
@@ -66,6 +63,12 @@ export default function clickCard(specificSong, mergedNextPage) {
             break;
         }
       });
+
+      favorite.innerText = "favorite_border";
+
+      const currentUrl = mergedNextPage[index].url.slice(9);
+
+      handleFavorite(favoriteUrls, currentUrl);
     });
   });
 }

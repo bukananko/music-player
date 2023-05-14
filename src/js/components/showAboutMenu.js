@@ -7,7 +7,7 @@ import {
   bottomPlayer,
 } from "../constants/constants.js";
 
-export default function showAboutMe() {
+export default function showAboutMenu() {
   aboutMenu.addEventListener("click", function () {
     !listSong.classList.contains("hidden")
       ? (sectionHead.innerText = "About")

@@ -4,7 +4,6 @@ import searchInput from "./components/searchInput.js";
 import { playPause } from "./components/control.js";
 import firstRender from "./firstRender/firstRender.js";
 import handleDarkMode from "./components/handleDarkMode.js";
-import showAboutMenu from "./components/showAboutMenu.js";
 
 export default function app() {
   firstRender();
@@ -13,5 +12,4 @@ export default function app() {
   songDuration();
   searchInput();
   handleDarkMode();
-  showAboutMenu();
 }

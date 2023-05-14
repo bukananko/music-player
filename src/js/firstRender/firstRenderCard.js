@@ -6,7 +6,7 @@ export default function firstRenderCard() {
     .map((list) => {
       return `
     <li id="myPlaylist"
-    class="w-40 bg-gray-100 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white rounded-lg cursor-pointer p-4 hover:bg-gray-200" >
+    class="w-40 bg-gray-100 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white rounded-lg cursor-pointer p-4 hover:bg-gray-200 drop-shadow-2xl">
     <div class="rounded-md overflow-hidden w-32">
     <img src="${list.thumbnail}" loading="lazy" alt="song album" class="w-full aspect-square object-cover" />
             </div>

@@ -25,7 +25,7 @@
           loading="lazy"
           class="w-9 rounded-full cursor-pointer" />
 
-        <button class="flex justify-center items-center">
+        <button title="Dark Mode" class="flex justify-center items-center">
           <i id="darkmode" class="material-icons dark:text-white">dark_mode</i>
         </button>
 
@@ -63,10 +63,10 @@
             <p>I made this to learn JavaScript. as simple as that.</p>
             <br />
             <p>
-              Features that haven't been made and I want to make = full music
-              player on mobile and a list of favorite music.
+              Features that haven't been made and I want to make = a list of
+              favorite music. (ongoing)
+              <br />
             </p>
-            <br />
             <p>
               Feel free to contribute on
               <a
@@ -103,60 +103,82 @@
       <ul
         id="listSong"
         class="flex gap-y-5 sm:gap-5 flex-wrap justify-evenly sm:justify-start"></ul>
+
+      <ul
+        id="listFavSong"
+        class="flex gap-y-5 sm:gap-5 flex-wrap justify-evenly sm:justify-start"></ul>
     </section>
 
     <footer class="relative">
       <div
         id="bottomPlayer"
-        class="bg-gray-100 p-4 lg:px-56 flex justify-between items-center fixed bottom-0 w-full gap-5 md:gap-10 lg:gap-72 dark:bg-black dark:text-white">
-        <div class="flex gap-2 w-full justify-start items-center">
-          <img
-            id="album-cover"
-            alt="album cover"
-            loading="lazy"
-            src="src/img/placeholdermusic.jpg"
-            class="object-cover aspect-square w-11 sm:w-14 rounded-sm" />
+        class="bg-gray-100 p-4 lg:px-56 fixed bottom-0 w-full dark:bg-black dark:text-white h-20">
+        <div
+          class="flex justify-between items-center h-full gap-5 md:gap-10 lg:gap-72">
+          <div
+            id="clickFullPlayer"
+            class="flex gap-2 w-full justify-center items-center">
+            <img
+              id="album-cover"
+              alt="album cover"
+              loading="lazy"
+              src="src/img/placeholdermusic.jpg"
+              class="object-cover aspect-square w-11 sm:w-14 rounded-sm drop-shadow-2xl" />
+            <canvas id="myCanvas" class="hidden"></canvas>
 
-          <div id="music-details" class="truncate w-full">
-            <p id="song-name" class="font-bold text-xs sm:text-sm">Song</p>
-            <p
-              id="song-artist"
-              class="font-semibold text-gray-500 text-xs sm:text-sm">
-              Artist
-            </p>
-          </div>
-        </div>
-
-        <div id="controls" class="w-max">
-          <div class="flex justify-end sm:justify-center items-center gap-5">
-            <div class="hidden md:flex gap-5">
-              <i id="repeat" class="material-icons">repeat</i>
-              <i id="previous" class="material-icons">skip_previous</i>
-            </div>
-            <i
-              id="play-pause"
-              class="material-icons border-2 border-black dark:border-white rounded-full p-1">
-              play_arrow
-            </i>
-            <i id="next" class="material-icons">skip_next</i>
-            <div class="hidden md:flex gap-5">
-              <i id="favorite" class="material-icons">favorite_border</i>
+            <div
+              id="music-details"
+              class="w-full flex justify-center items-start flex-col gap-1">
+              <p id="song-name" class="font-bold text-sm">Song</p>
+              <p
+                id="song-artist"
+                class="font-semibold text-gray-400 text-xl sm:text-sm md:block hidden">
+                Artist
+              </p>
             </div>
           </div>
 
-          <div class="flex gap-4 justify-center items-center">
-            <p id="currentTime" class="hidden md:block">0:00</p>
+          <div
+            id="controls"
+            class="w-max flex flex-col justify-center items-center">
+            <div class="flex justify-end sm:justify-center items-center gap-5">
+              <i id="repeat" class="material-icons md:block hidden">repeat</i>
+              <i id="previous" class="material-icons md:block hidden"
+                >skip_previous</i
+              >
+              <i
+                id="play-pause"
+                class="material-icons border-2 border-black dark:border-white rounded-full p-1">
+                play_arrow
+              </i>
+              <i id="next" class="material-icons md:block">skip_next</i>
+              <i id="favorite" class="material-icons hidden md:block"
+                >favorite_border</i
+              >
+            </div>
 
-            <input
-              type="range"
-              id="progress-bar"
-              min="0"
-              max="100"
-              class="w-full md:w-96 bg-gray-300 dark:bg-gray-800 rounded-full h-[5px] absolute md:relative top-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500" />
+            <div class="flex gap-2 justify-between items-center w-full">
+              <p id="currentTime" class="md:block hidden -bottom-7">0:00</p>
 
-            <audio id="main-song" src="" type="audio/mp4"></audio>
+              <input
+                type="range"
+                id="progress-bar"
+                min="0"
+                max="100"
+                class="w-full md:w-96 bg-transparent md:bg-gray-400 rounded-ful h-[4px] md:relative top-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500 absolute" />
 
-            <p id="duration" class="hidden md:block">0:00</p>
+              <audio id="main-song" src="" type="audio/mp4"></audio>
+
+              <p id="duration" class="md:block hidden right-0 -bottom-7">
+                0:00
+              </p>
+            </div>
+          </div>
+
+          <div id="minimizeBtn" class="hidden">
+            <button class="flex justify-center items-center">
+              <i class="material-icons text-3xl">expand_more</i>
+            </button>
           </div>
         </div>
       </div>

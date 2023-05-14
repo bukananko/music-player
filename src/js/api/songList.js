@@ -7,6 +7,7 @@ import { songResult } from "../constants/constants.js";
 
 export default async function songList() {
   let nextPageUrl = null;
+  let favoriteUrls = [];
 
   const songs = await getSongs();
   nextPageUrl = getEncodedUrl(songs.nextpage);
@@ -18,7 +19,7 @@ export default async function songList() {
   });
 
   const specificSong = document.querySelectorAll("#specific-song");
-  clickCard(specificSong, mergedNextPage);
+  clickCard(specificSong, mergedNextPage, favoriteUrls);
 
   goNextPage(nextPageUrl, mergedNextPage);
 

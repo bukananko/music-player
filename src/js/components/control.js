@@ -5,6 +5,8 @@ import {
   controls,
   playPauseBtn,
   repeatBtn,
+  bottomPlayer,
+  musicName,
 } from "../constants/constants.js";
 import marquee from "./marquee.js";
 
@@ -54,20 +56,41 @@ repeatBtn.addEventListener("click", function () {
 export function playPause() {
   playPauseBtn.addEventListener("click", function () {
     const isMusicPaused = controls.classList.contains("paused");
-    isMusicPaused ? pauseMusic() : playMusic();
+
+    if (musicName.innerText !== "Song") {
+      isMusicPaused ? pauseMusic() : playMusic();
+    }
   });
 }
 
-const favorite = document.getElementById("favorite");
+albumCover.onload = () => {
+  albumCover.crossOrigin = "Anonymous";
+  const canvas = document.getElementById("myCanvas");
 
-favorite.addEventListener("click", function () {
-  let getText = favorite.innerText;
-  switch (getText) {
-    case "favorite_border":
-      favorite.innerText = "favorite";
-      break;
-    case "favorite":
-      favorite.innerText = "favorite_border";
-      break;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  ctx.drawImage(albumCover, -90, -50);
+  const imageData = ctx.getImageData(0, 0, albumCover.width, albumCover.height);
+
+  const getRgb = imageData.data.slice(0, 3);
+  const rgb = [];
+  getRgb.forEach((resu) => {
+    if (resu > 0) {
+      rgb.push(resu);
+    }
+  });
+
+  bottomPlayer.style.backgroundColor = `rgb(${rgb})`;
+
+  if (rgb[1] <= 127) {
+    bottomPlayer.classList.add("text-white");
+    playPauseBtn.classList.add("border-white");
+    musicArtist.classList.replace("text-gray-600", "text-gray-400");
+  } else if (rgb[1] > 127) {
+    bottomPlayer.classList.remove("text-white");
+    playPauseBtn.classList.remove("border-white");
+    musicArtist.classList.replace("text-gray-400", "text-gray-600");
   }
-});
+
+  bottomPlayer.classList.remove("dark:text-white");
+  playPauseBtn.classList.remove("dark:border-white");
+};

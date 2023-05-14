@@ -20,6 +20,11 @@ const aboutMenu = document.getElementById("aboutMenu");
 const aboutMenuContent = document.getElementById("aboutMenuContent");
 const sectionHead = document.getElementById("sectionHead");
 const bottomPlayer = document.getElementById("bottomPlayer");
+const favorite = document.getElementById("favorite");
+
+const fullPlayerBtn = document.getElementById("clickFullPlayer");
+const minimizeBtn = document.getElementById("minimizeBtn");
+const inputRange = document.getElementById("progress-bar");
 
 export {
   musicName,
@@ -42,4 +47,8 @@ export {
   aboutMenuContent,
   sectionHead,
   bottomPlayer,
+  favorite,
+  fullPlayerBtn,
+  minimizeBtn,
+  inputRange,
 };
