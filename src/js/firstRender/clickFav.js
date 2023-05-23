@@ -1,29 +1,28 @@
 import { playMusic } from "../components/control.js";
 import { mainSong, repeatBtn, next, prev } from "../constants/constants.js";
-import loadPlaylist from "./loadPlaylist.js";
-import playlist from "./playlist.js";
+import loadFavSong from "./loadFavSong.js";
 
-export default function clickPlaylist(myPlaylist) {
-  myPlaylist.forEach((list, index) => {
-    list.addEventListener("click", async function () {
+export default function clickFav(favSong, favoriteUrls) {
+  favSong.forEach((fav, index) => {
+    fav.addEventListener("click", async function () {
       let musicIndex = index;
 
-      loadPlaylist(musicIndex, playlist);
+      loadFavSong(musicIndex, favoriteUrls);
 
       function nextMusic() {
         musicIndex++;
-        if (musicIndex == playlist.length) {
+        if (musicIndex == favoriteUrls.length) {
           musicIndex = 0;
         }
-        loadPlaylist(musicIndex, playlist);
+        loadFavSong(musicIndex, favoriteUrls);
       }
 
       function prevMusic() {
         if (musicIndex == 0) {
-          musicIndex = playlist.length;
+          musicIndex = favoriteUrls.length;
         }
         musicIndex--;
-        loadPlaylist(musicIndex, playlist);
+        loadFavSong(musicIndex, favoriteUrls);
       }
 
       next.addEventListener("click", nextMusic);

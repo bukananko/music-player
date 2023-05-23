@@ -11,44 +11,44 @@ import {
   controls,
   favorite,
   playPauseBtn,
-  inputRange,
+  progressBar,
+  sectionHead,
+  listFavSong,
+  musicDetails,
 } from "../constants/constants.js";
 
 export default function clickFullPlayer() {
   const footer = document.querySelector("footer");
-  const musicDetails = document.getElementById("music-details");
   const minimize = document.querySelector("#minimizeBtn i");
   const handlePadding = document.querySelector("#bottomPlayer div");
-  const curTime = document.getElementById("currentTime");
+  const currentTime = document.getElementById("currentTime");
   const duration = document.getElementById("duration");
   const controlIcon = document.querySelectorAll("#controls div i");
 
   fullPlayerBtn.onclick = () => {
-    listSong.classList.add("hidden");
-
-    bottomPlayer.classList.replace("h-20", "h-full");
-    controls.classList.replace("w-max", "w-full");
-    controls.classList.add("gap-5");
     handlePadding.classList.add("flex-col");
-    handlePadding.classList.add("pt-20");
+    handlePadding.classList.add("pt-10");
     handlePadding.classList.add("pb-10");
-    fullPlayerBtn.classList.replace("gap-2", "gap-10");
+    fullPlayerBtn.classList.replace("gap-2", "gap-20");
     fullPlayerBtn.classList.add("flex-col");
-    musicDetails.classList.replace("items-start", "items-center");
     musicName.classList.replace("text-sm", "text-xl");
     musicArtist.classList.remove("hidden");
-    albumCover.classList.replace("w-11", "w-72");
-    inputRange.classList.remove("absolute");
-    curTime.classList.remove("hidden");
-    duration.classList.remove("hidden");
-    minimizeBtn.classList.remove("hidden");
-    curTime.classList.add("absolute");
+    albumCover.classList.replace("w-11", "w-11/12");
+    currentTime.classList.add("absolute");
+    currentTime.classList.remove("hidden");
     duration.classList.add("absolute");
-
-    footer.classList.remove("relative");
+    duration.classList.remove("hidden");
+    controls.classList.replace("w-max", "w-full");
+    controls.classList.add("gap-10");
     controls.classList.add("relative");
+    controls.classList.add("flex-col-reverse");
+    progressBar.classList.remove("absolute");
+    progressBar.classList.replace("bg-transparent", "bg-gray-300");
     playPauseBtn.classList.add("px-2");
-    inputRange.classList.replace("bg-transparent", "bg-gray-300");
+    minimizeBtn.classList.remove("hidden");
+    footer.classList.remove("relative");
+    listSong.classList.replace("flex", "hidden");
+    bottomPlayer.classList.replace("h-20", "h-full");
 
     controlIcon.forEach((item) => {
       if (item.classList.contains("hidden")) {
@@ -57,40 +57,64 @@ export default function clickFullPlayer() {
 
       item.classList.add("text-3xl");
     });
+
+    if (sectionHead.innerText == "Favorite") {
+      listFavSong.classList.replace("flex", "hidden");
+    }
+
+    if (!musicName.classList.contains("animate-marquee")) {
+      musicDetails.classList.add("justify-center");
+      musicDetails.classList.add("items-center");
+    }
+
+    document.documentElement.style.setProperty(
+      "--textWidth",
+      musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
+    );
   };
 
   minimize.onclick = () => {
-    bottomPlayer.classList.replace("h-full", "h-20");
-    repeatBtn.classList.add("hidden");
-    fullPlayerBtn.classList.replace("gap-10", "gap-2");
-    musicDetails.classList.replace("items-center", "items-start");
-    musicName.classList.replace("text-xl", "text-sm");
-    albumCover.classList.replace("w-72", "w-11");
     fullPlayerBtn.classList.remove("flex-col");
-    inputRange.classList.add("absolute");
-    curTime.classList.add("hidden");
+    fullPlayerBtn.classList.replace("gap-20", "gap-2");
+    currentTime.classList.add("hidden");
+    currentTime.classList.remove("absolute");
     duration.classList.add("hidden");
-    musicArtist.classList.add("hidden");
-
-    handlePadding.classList.remove("flex-col");
-    handlePadding.classList.remove("pt-20");
-    handlePadding.classList.remove("pb-10");
-    minimizeBtn.classList.add("hidden");
-    favorite.classList.add("hidden");
-    prev.classList.add("hidden");
-    controls.classList.replace("w-full", "w-max");
-    controls.classList.remove("gap-5");
-    playPauseBtn.classList.remove("px-2");
-    curTime.classList.remove("absolute");
     duration.classList.remove("absolute");
+    handlePadding.classList.remove("flex-col");
+    handlePadding.classList.remove("pt-10");
+    handlePadding.classList.remove("pb-10");
+    controls.classList.replace("w-full", "w-max");
+    controls.classList.remove("gap-10");
+    controls.classList.remove("flex-col-reverse");
+    controls.classList.remove("relative");
+    progressBar.classList.add("absolute");
+    progressBar.classList.replace("bg-gray-300", "bg-transparent");
+    playPauseBtn.classList.remove("px-2");
+    favorite.classList.add("hidden");
+    footer.classList.add("relative");
+    repeatBtn.classList.add("hidden");
+    bottomPlayer.classList.replace("h-full", "h-20");
+    musicDetails.classList.remove("justify-center");
+    musicDetails.classList.remove("items-center");
+    musicName.classList.replace("text-xl", "text-sm");
+    musicArtist.classList.add("hidden");
+    albumCover.classList.replace("w-11/12", "w-11");
+    minimizeBtn.classList.add("hidden");
+    prev.classList.add("hidden");
 
     controlIcon.forEach((item) => {
       item.classList.remove("text-3xl");
     });
 
-    footer.classList.add("relative");
-    controls.classList.remove("relative");
-    listSong.classList.remove("hidden");
-    inputRange.classList.replace("bg-gray-300", "bg-transparent");
+    if (sectionHead.innerText == "Favorite") {
+      listFavSong.classList.replace("hidden", "flex");
+    } else {
+      listSong.classList.replace("hidden", "flex");
+    }
+
+    document.documentElement.style.setProperty(
+      "--textWidth",
+      musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
+    );
   };
 }

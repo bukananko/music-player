@@ -42,11 +42,11 @@ const playlist = [
     title: "Fallen Kingdom",
   },
   {
+    artist: "NIKI",
+    song: "1xrhZUiUHaM",
     thumbnail:
-      "https://pipedproxy.kavin.rocks/vi_webp/C0ruAy8TpPo/maxresdefault.webp?host=i.ytimg.com",
-    song: "C0ruAy8TpPo",
-    artist: "Laufey",
-    title: "Let You Break My Heart Again",
+      "https://pipedproxy.kavin.rocks/vi_webp/1xrhZUiUHaM/maxresdefault.webp?host=i.ytimg.com",
+    title: "Anaheim",
   },
   {
     thumbnail:
@@ -63,11 +63,11 @@ const playlist = [
     title: "Touch It (Sad Version)",
   },
   {
+    artist: "dhruv",
+    song: "IYOfGK5Zos4",
     thumbnail:
-      "https://pipedproxy.kavin.rocks/vi_webp/WiinVuzh4DA/maxresdefault.webp?host=i.ytimg.com",
-    song: "WiinVuzh4DA",
-    artist: "Billie Eilish",
-    title: "i love you",
+      "https://pipedproxy.kavin.rocks/vi_webp/IYOfGK5Zos4/maxresdefault.webp?host=i.ytimg.com",
+    title: "double take",
   },
   {
     thumbnail:
@@ -77,11 +77,11 @@ const playlist = [
     title: "Your Shirt",
   },
   {
+    artist: "One Direction",
+    song: "7sr_1MNqH2Q",
     thumbnail:
-      "https://pipedproxy.kavin.rocks/vi_webp/AdEKgwUqPKI/maxresdefault.webp?host=i.ytimg.com",
-    song: "AdEKgwUqPKI",
-    artist: "SZA",
-    title: "Kill Bill",
+      "https://pipedproxy.kavin.rocks/vi/7sr_1MNqH2Q/maxresdefault.jpg?host=i.ytimg.com",
+    title: "18",
   },
   {
     thumbnail:
@@ -112,11 +112,11 @@ const playlist = [
     title: "Until I Found You (Em Beihold Version)",
   },
   {
+    artist: "Lee Hi",
+    song: "Fy5C-bzi59Q",
     thumbnail:
-      "https://pipedproxy.kavin.rocks/vi_webp/WMTqf7PSjHw/maxresdefault.webp?host=i.ytimg.com",
-    song: "WMTqf7PSjHw",
-    artist: "Arctic Monkeys",
-    title: "i wanna be yours - (sped up)",
+      "https://pipedproxy.kavin.rocks/vi/Fy5C-bzi59Q/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDDK7C_WNCPpYXQXHWfCPioQsRVeA&host=i.ytimg.com",
+    title: "ONLY",
   },
   {
     thumbnail:
@@ -126,18 +126,18 @@ const playlist = [
     title: "Location Unknown ◐ (feat. BEKA) (Brooklyn Session)",
   },
   {
+    artist: "Lana Del Rey",
+    song: "x9EoXWJ_cWM",
     thumbnail:
-      "https://pipedproxy.kavin.rocks/vi/TA1W-pHNKl8/maxresdefault.jpg?host=i.ytimg.com",
-    song: "TA1W-pHNKl8",
-    artist: "Christina Perri",
-    title: "A Thousand Years",
+      "https://pipedproxy.kavin.rocks/vi/x9EoXWJ_cWM/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCcrXgKwDMqd8flAnyYKyv4CMLVWw&host=i.ytimg.com",
+    title: "Say Yes To Heaven",
   },
   {
     thumbnail:
       "https://pipedproxy.kavin.rocks/vi/s5xWEk_TMFQ/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCg0_OszmMd_0xLKVsfut0eOLpAuQ&host=i.ytimg.com",
     song: "s5xWEk_TMFQ",
     artist: "Aziz Hedra",
-    title: "somebody's pleasure - sped up",
+    title: "Somebody's Pleasure - speed up",
   },
   {
     thumbnail:

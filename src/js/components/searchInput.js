@@ -7,19 +7,32 @@ import {
   sectionHead,
   aboutMenuContent,
   bottomPlayer,
+  listFavSong,
 } from "../constants/constants.js";
 
 export default function searchInput() {
   search.addEventListener("keyup", function (e) {
     if (e.key == "Enter") {
-      if (listSong.classList.contains("hidden")) {
-        listSong.classList.remove("hidden");
+      if (
+        listSong.classList.contains("hidden") &&
+        sectionHead.innerText == "About"
+      ) {
+        listSong.classList.replace("hidden", "flex");
         aboutMenuContent.classList.toggle("hidden");
-        songResult.classList.toggle("hidden");
         bottomPlayer.classList.toggle("hidden");
+      } else if (
+        listSong.classList.contains("hidden") &&
+        sectionHead.innerText == "Favorite"
+      ) {
+        listSong.classList.replace("hidden", "flex");
+        listFavSong.classList.replace("flex", "hidden");
       }
+
       sectionHead.innerText = "Music";
+      favListBtn.classList.remove("underline");
+
       songList();
+      search.blur();
     }
   });
 
@@ -29,14 +42,26 @@ export default function searchInput() {
     search.focus();
 
     if (search.value) {
-      if (listSong.classList.contains("hidden")) {
-        listSong.classList.toggle("hidden");
+      if (
+        listSong.classList.contains("hidden") &&
+        sectionHead.innerText == "About"
+      ) {
+        listSong.classList.replace("hidden", "flex");
         aboutMenuContent.classList.toggle("hidden");
-        songResult.classList.toggle("hidden");
         bottomPlayer.classList.toggle("hidden");
+      } else if (
+        listSong.classList.contains("hidden") &&
+        sectionHead.innerText == "Favorite"
+      ) {
+        listSong.classList.replace("hidden", "flex");
+        listFavSong.classList.replace("flex", "hidden");
       }
+
       sectionHead.innerText = "Music";
+      favListBtn.classList.remove("underline");
+
       songList();
+      search.blur();
     }
   });
 }

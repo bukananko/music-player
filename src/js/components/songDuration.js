@@ -1,9 +1,7 @@
 import { playMusic } from "./control.js";
-import { mainSong } from "../constants/constants.js";
+import { mainSong, progressBar } from "../constants/constants.js";
 
 export default function songDuration() {
-  const progressBar = document.getElementById("progress-bar");
-
   mainSong.addEventListener("timeupdate", function (e) {
     const currentTime = e.target.currentTime;
     const duration = e.target.duration;

@@ -3,11 +3,13 @@ import getEncodedUrl from "./getEncodedUrl.js";
 import cards from "../components/cards.js";
 import clickCard from "../components/clickCard.js";
 import goNextPage from "./goNextPage.js";
-import { songResult } from "../constants/constants.js";
 
 export default async function songList() {
+  const favStorage = JSON.parse(localStorage.getItem("fav"));
+
   let nextPageUrl = null;
-  let favoriteUrls = [];
+  let favoriteUrls =
+    favStorage !== null && favStorage.length > 0 ? favStorage : [];
 
   const songs = await getSongs();
   nextPageUrl = getEncodedUrl(songs.nextpage);
@@ -22,6 +24,4 @@ export default async function songList() {
   clickCard(specificSong, mergedNextPage, favoriteUrls);
 
   goNextPage(nextPageUrl, mergedNextPage);
-
-  songResult.innerText = `Result: ${specificSong.length}`;
 }

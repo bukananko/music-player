@@ -12,14 +12,14 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
       rel="stylesheet" />
     <link href="dist/output.css" rel="stylesheet" />
-    <title>Music Player But Only My Music</title>
+    <title id="tabHeader">Music Player But Only My Music</title>
   </head>
   <body class="dark:bg-black">
     <nav
       class="p-4 lg:px-56 flex justify-between items-center border-b border-b-black dark:border-b-white">
       <div class="flex justify-center items-center gap-3">
         <img
-          id="aboutMenu"
+          id="aboutMenuBtn"
           src="src/img/ai.jpg"
           alt="ai ohto"
           loading="lazy"
@@ -29,11 +29,18 @@
           <i id="darkmode" class="material-icons dark:text-white">dark_mode</i>
         </button>
 
+        <button title="Favorite" class="flex justify-center items-center">
+          <i id="favListBtn" class="material-icons dark:text-white"
+            >library_music
+          </i>
+        </button>
+
         <input
           id="search"
           placeholder="Search..."
-          type="text"
+          type="search"
           class="outline-none border border-black rounded-full py-1 px-4 w-full lg:w-56 dark:bg-transparent dark:border-white dark:text-white hidden md:block" />
+
         <button id="searchBtn" class="flex justify-center items-center">
           <i
             class="material-icons rounded-full dark:text-white bg-gray-200 dark:bg-white/20 p-1"
@@ -42,9 +49,7 @@
         </button>
       </div>
 
-      <p
-        id="greeting"
-        class="font-bold sm:text-xl dark:text-white md:block"></p>
+      <p id="greeting" class="font-bold text-xl dark:text-white md:block"></p>
     </nav>
 
     <section class="p-4 lg:px-56 mb-24 dark:text-white">
@@ -56,48 +61,37 @@
 
           <div id="aboutMenuContent" class="hidden mt-4">
             <p>
-              Open source music app which is made with Tailwind CSS dan native
+              Open source music app which is made with Tailwind CSS and native
               JavaScript. No library JavaScript included, just fetched from API.
             </p>
             <br />
             <p>I made this to learn JavaScript. as simple as that.</p>
             <br />
-            <p>
-              Features that haven't been made and I want to make = a list of
-              favorite music. (ongoing)
-              <br />
-            </p>
-            <p>
-              Feel free to contribute on
-              <a
-                href="https://github.com/kaylaiueo/musicapp"
-                target="_blank"
-                class="underline text-blue-400"
-                >Github</a
-              >
-            </p>
+            <ul>
+              <h3>Features:</h3>
+              <li>- Full screen song player on mobile</li>
+              <li>- Favorite</li>
+              <li>- Dark mode</li>
+              <li>- Search song what you want</li>
+              <li>- Ad free</li>
+            </ul>
+            <br />
+            <p>Best regards,</p>
+            <p>ai</p>
           </div>
         </div>
 
-        <div class="flex justify-center items-center gap-5">
-          <p id="songResult" class="font-semibold text-xs text-gray-500"></p>
-
-          <label
-            id="filter-hidden"
-            for="filter"
-            class="font-semibold md:text-base hidden">
-            Filter :
-            <select
-              name="filter"
-              id="filter"
-              class="cursor-pointer bg-transparent">
-              <option value="all" class="dark:text-black">Youtube</option>
-              <option value="music_songs" class="dark:text-black" selected>
-                Music
-              </option>
-            </select>
-          </label>
-        </div>
+        <select
+          name="filter"
+          id="filter"
+          class="cursor-pointer bg-transparent hidden w-24">
+          <optgroup label="Filter" class="dark:text-black">
+            <option value="all" class="dark:text-black">Youtube</option>
+            <option value="music_songs" class="dark:text-black" selected>
+              Music
+            </option>
+          </optgroup>
+        </select>
       </div>
 
       <ul
@@ -106,7 +100,7 @@
 
       <ul
         id="listFavSong"
-        class="flex gap-y-5 sm:gap-5 flex-wrap justify-evenly sm:justify-start"></ul>
+        class="hidden gap-y-5 sm:gap-5 flex-wrap justify-evenly sm:justify-start"></ul>
     </section>
 
     <footer class="relative">
@@ -114,25 +108,23 @@
         id="bottomPlayer"
         class="bg-gray-100 p-4 lg:px-56 fixed bottom-0 w-full dark:bg-black dark:text-white h-20">
         <div
-          class="flex justify-between items-center h-full gap-5 md:gap-10 lg:gap-72">
+          class="flex justify-between items-center h-full gap-2 md:gap-10 lg:gap-72">
           <div
             id="clickFullPlayer"
-            class="flex gap-2 w-full justify-center items-center">
+            class="w-full flex gap-2 justify-center items-center overflow-hidden">
             <img
               id="album-cover"
               alt="album cover"
               loading="lazy"
-              src="src/img/placeholdermusic.jpg"
+              src="src/img/placeholdermusic-removebg.png"
               class="object-cover aspect-square w-11 sm:w-14 rounded-sm drop-shadow-2xl" />
             <canvas id="myCanvas" class="hidden"></canvas>
 
-            <div
-              id="music-details"
-              class="w-full flex justify-center items-start flex-col gap-1">
-              <p id="song-name" class="font-bold text-sm">Song</p>
+            <div id="music-details" class="w-full flex flex-col gap-1 truncate">
+              <p id="song-name" class="font-bold text-sm w-max">Song</p>
               <p
                 id="song-artist"
-                class="font-semibold text-gray-400 text-xl sm:text-sm md:block hidden">
+                class="font-semibold text-gray-400 text-xl sm:text-sm md:block hidden text-center md:text-start">
                 Artist
               </p>
             </div>
@@ -158,20 +150,18 @@
             </div>
 
             <div class="flex gap-2 justify-between items-center w-full">
-              <p id="currentTime" class="md:block hidden -bottom-7">0:00</p>
+              <p id="currentTime" class="md:block hidden top-2">0:00</p>
 
               <input
                 type="range"
                 id="progress-bar"
                 min="0"
                 max="100"
-                class="w-full md:w-96 bg-transparent md:bg-gray-400 rounded-ful h-[4px] md:relative top-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500 absolute" />
+                class="w-full md:w-96 bg-transparent md:bg-gray-300 rounded-full h-[4px] md:relative top-0 left-0 bg-gradient-to-r from-cyan-500 to-blue-500 absolute" />
 
               <audio id="main-song" src="" type="audio/mp4"></audio>
 
-              <p id="duration" class="md:block hidden right-0 -bottom-7">
-                0:00
-              </p>
+              <p id="duration" class="md:block hidden right-0 top-2">0:00</p>
             </div>
           </div>
 

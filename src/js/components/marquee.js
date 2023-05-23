@@ -1,8 +1,27 @@
-import { musicName } from "../constants/constants.js";
+import {
+  musicName,
+  musicDetails,
+  bottomPlayer,
+} from "../constants/constants.js";
 
 export default function marquee(title) {
-  musicName.innerHTML =
-    title.length >= 35
-      ? `<marquee scrolldelay="150" class="flex justify-center items-center">${title}</marquee>`
-      : title;
+  musicName.innerText = title;
+
+  document.documentElement.style.setProperty(
+    "--textWidth",
+    musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
+  );
+
+  if (musicName.clientWidth > musicDetails.clientWidth) {
+    musicName.classList.add("animate-marquee");
+    musicDetails.classList.remove("justify-center");
+    musicDetails.classList.remove("items-center");
+  } else {
+    musicName.classList.remove("animate-marquee");
+
+    if (bottomPlayer.classList.contains("h-full")) {
+      musicDetails.classList.add("justify-center");
+      musicDetails.classList.add("items-center");
+    }
+  }
 }

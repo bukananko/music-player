@@ -1,11 +1,9 @@
-import { greeting, songResult } from "../constants/constants.js";
+import { greeting, filter } from "../constants/constants.js";
 
 export default function greetings() {
   greeting.addEventListener("click", function () {
-    const filterHidden = document.getElementById("filter-hidden");
     if (!listSong.classList.contains("hidden")) {
-      songResult.classList.toggle("hidden");
-      filterHidden.classList.toggle("hidden");
+      filter.classList.toggle("hidden");
     }
   });
 
