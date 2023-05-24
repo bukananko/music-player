@@ -1,7 +1,11 @@
-import { favListBtn, listSong, sectionHead } from "../constants/constants.js";
+import {
+  favListBtn,
+  listSong,
+  sectionHead,
+  listFavSong,
+  filter,
+} from "../constants/constants.js";
 import favCard from "./favCard.js";
-
-import { listFavSong } from "../constants/constants.js";
 import clickFav from "./clickFav.js";
 
 export default function showFav() {
@@ -44,5 +48,7 @@ export default function showFav() {
         listSong.classList.replace("hidden", "flex");
       }
     }
+
+    filter.classList.add("hidden");
   };
 }

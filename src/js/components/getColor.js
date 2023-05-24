@@ -6,37 +6,43 @@ import {
 } from "../constants/constants.js";
 
 export default function getColor() {
-  albumCover.onload = () => {
-    albumCover.crossOrigin = "Anonymous";
-    const canvas = document.getElementById("myCanvas");
+  const isFirefox = navigator.userAgent.indexOf("Firefox") != -1;
 
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-    ctx.drawImage(albumCover, -90, -50);
-    const imageData = ctx.getImageData(
-      0,
-      0,
-      albumCover.width,
-      albumCover.height
-    );
+  if (isFirefox != true) {
+    albumCover.onload = () => {
+      albumCover.crossOrigin = "Anonymous";
+      const canvas = document.getElementById("myCanvas");
 
-    const getRgb = imageData.data.slice(0, 3);
-    const rgb = [];
-    getRgb.forEach((resu) => {
-      if (resu > 0) {
-        rgb.push(resu);
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      ctx.drawImage(albumCover, -90, -50);
+      const imageData = ctx.getImageData(
+        0,
+        0,
+        albumCover.width,
+        albumCover.height
+      );
+
+      const getRgb = imageData.data.slice(0, 3);
+      const rgb = [];
+      getRgb.forEach((resu) => {
+        if (resu > 0) {
+          rgb.push(resu);
+        }
+      });
+
+      bottomPlayer.style.backgroundColor = `rgb(${rgb})`;
+
+      if (rgb[1] <= 127) {
+        bottomPlayer.classList.add("text-white");
+        playPauseBtn.classList.add("border-white");
+        musicArtist.classList.replace("text-gray-600", "text-gray-400");
+      } else if (rgb[1] > 127) {
+        bottomPlayer.classList.remove("dark:text-white");
+        bottomPlayer.classList.remove("text-white");
+        playPauseBtn.classList.remove("border-white");
+        playPauseBtn.classList.remove("dark:border-white");
+        musicArtist.classList.replace("text-gray-400", "text-gray-600");
       }
-    });
-
-    bottomPlayer.style.backgroundColor = `rgb(${rgb})`;
-
-    if (rgb[1] <= 127) {
-      bottomPlayer.classList.add("text-white");
-      playPauseBtn.classList.add("border-white");
-      musicArtist.classList.replace("text-gray-600", "text-gray-400");
-    } else if (rgb[1] > 127) {
-      bottomPlayer.classList.remove("text-white");
-      playPauseBtn.classList.remove("border-white");
-      musicArtist.classList.replace("text-gray-400", "text-gray-600");
-    }
-  };
+    };
+  }
 }

@@ -1,8 +1,8 @@
-# Music App
+# Music Player
 
 Built with Tailwind CSS and native JavaScript.
 
-No JavaScript libraries and Back-End included, just fetched from [Piped API](https://docs.piped.video/).
+No JavaScript libraries and Back-End included, just fetched from API.
 
 ## Features
 

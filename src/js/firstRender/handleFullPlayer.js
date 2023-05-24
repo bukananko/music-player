@@ -33,7 +33,7 @@ export default function clickFullPlayer() {
     fullPlayerBtn.classList.add("flex-col");
     musicName.classList.replace("text-sm", "text-xl");
     musicArtist.classList.remove("hidden");
-    albumCover.classList.replace("w-11", "w-11/12");
+    albumCover.classList.replace("w-11", "w-10/12");
     currentTime.classList.add("absolute");
     currentTime.classList.remove("hidden");
     duration.classList.add("absolute");
@@ -98,7 +98,7 @@ export default function clickFullPlayer() {
     musicDetails.classList.remove("items-center");
     musicName.classList.replace("text-xl", "text-sm");
     musicArtist.classList.add("hidden");
-    albumCover.classList.replace("w-11/12", "w-11");
+    albumCover.classList.replace("w-10/12", "w-11");
     minimizeBtn.classList.add("hidden");
     prev.classList.add("hidden");
 
