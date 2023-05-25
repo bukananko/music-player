@@ -32,6 +32,7 @@ export default function clickFullPlayer() {
     fullPlayerBtn.classList.replace("gap-2", "gap-20");
     fullPlayerBtn.classList.add("flex-col");
     musicName.classList.replace("text-sm", "text-xl");
+    musicName.classList.remove("animate-marquee");
     musicArtist.classList.remove("hidden");
     albumCover.classList.replace("w-11", "w-10/12");
     currentTime.classList.add("absolute");
@@ -62,15 +63,13 @@ export default function clickFullPlayer() {
       listFavSong.classList.replace("flex", "hidden");
     }
 
-    if (!musicName.classList.contains("animate-marquee")) {
+    if (musicName.clientWidth < musicDetails.clientWidth) {
+      musicName.classList.remove("animate-marquee");
       musicDetails.classList.add("justify-center");
       musicDetails.classList.add("items-center");
+    } else {
+      musicName.classList.add("animate-marquee");
     }
-
-    document.documentElement.style.setProperty(
-      "--textWidth",
-      musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
-    );
   };
 
   minimize.onclick = () => {
@@ -97,6 +96,7 @@ export default function clickFullPlayer() {
     musicDetails.classList.remove("justify-center");
     musicDetails.classList.remove("items-center");
     musicName.classList.replace("text-xl", "text-sm");
+    musicName.classList.remove("animate-marquee");
     musicArtist.classList.add("hidden");
     albumCover.classList.replace("w-10/12", "w-11");
     minimizeBtn.classList.add("hidden");
@@ -112,9 +112,8 @@ export default function clickFullPlayer() {
       listSong.classList.replace("hidden", "flex");
     }
 
-    document.documentElement.style.setProperty(
-      "--textWidth",
-      musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
-    );
+    if (musicName.clientWidth > musicDetails.clientWidth) {
+      musicName.classList.add("animate-marquee");
+    }
   };
 }

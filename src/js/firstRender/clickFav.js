@@ -4,7 +4,7 @@ import loadFavSong from "./loadFavSong.js";
 
 export default function clickFav(favSong, favoriteUrls) {
   favSong.forEach((fav, index) => {
-    fav.addEventListener("click", async function () {
+    fav.addEventListener("click", function () {
       let musicIndex = index;
 
       loadFavSong(musicIndex, favoriteUrls);
@@ -25,11 +25,11 @@ export default function clickFav(favSong, favoriteUrls) {
         loadFavSong(musicIndex, favoriteUrls);
       }
 
-      next.addEventListener("click", nextMusic);
+      next.onclick = nextMusic;
 
-      prev.addEventListener("click", prevMusic);
+      prev.onclick = prevMusic;
 
-      mainSong.addEventListener("ended", function () {
+      mainSong.onended = function () {
         let getText = repeatBtn.innerText;
 
         switch (getText) {
@@ -41,7 +41,7 @@ export default function clickFav(favSong, favoriteUrls) {
             playMusic();
             break;
         }
-      });
+      };
     });
   });
 }

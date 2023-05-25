@@ -10,6 +10,7 @@ import {
   next,
   prev,
   tabHeader,
+  musicName,
 } from "../constants/constants.js";
 import handleFavorite from "./handleFavorite.js";
 
@@ -23,6 +24,8 @@ export default function clickCard(specificSong, mergedNextPage, favoriteUrls) {
         ? uploader.slice(0, -7)
         : uploader;
       const song = audioStreams[0].url;
+
+      musicName.classList.remove("animate-marquee");
 
       musicArtist.innerText = artist;
       marquee(title);
@@ -49,11 +52,11 @@ export default function clickCard(specificSong, mergedNextPage, favoriteUrls) {
         loadRelatedMusic(musicIndex, relatedStreams, favoriteUrls);
       }
 
-      next.addEventListener("click", nextMusic);
+      next.onclick = nextMusic;
 
-      prev.addEventListener("click", prevMusic);
+      prev.onclick = prevMusic;
 
-      mainSong.addEventListener("ended", function () {
+      mainSong.onended = function () {
         let getText = repeatBtn.innerText;
 
         switch (getText) {
@@ -65,7 +68,7 @@ export default function clickCard(specificSong, mergedNextPage, favoriteUrls) {
             playMusic();
             break;
         }
-      });
+      };
 
       favorite.innerText = "favorite_border";
 

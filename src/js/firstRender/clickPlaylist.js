@@ -5,17 +5,17 @@ import playlist from "./playlist.js";
 
 export default function clickPlaylist(myPlaylist) {
   myPlaylist.forEach((list, index) => {
-    list.addEventListener("click", async function () {
+    list.addEventListener("click", function () {
       let musicIndex = index;
 
-      loadPlaylist(musicIndex, playlist);
+      loadPlaylist(musicIndex);
 
       function nextMusic() {
         musicIndex++;
         if (musicIndex == playlist.length) {
           musicIndex = 0;
         }
-        loadPlaylist(musicIndex, playlist);
+        loadPlaylist(musicIndex);
       }
 
       function prevMusic() {
@@ -23,14 +23,14 @@ export default function clickPlaylist(myPlaylist) {
           musicIndex = playlist.length;
         }
         musicIndex--;
-        loadPlaylist(musicIndex, playlist);
+        loadPlaylist(musicIndex);
       }
 
-      next.addEventListener("click", nextMusic);
+      next.onclick = nextMusic;
 
-      prev.addEventListener("click", prevMusic);
+      prev.onclick = prevMusic;
 
-      mainSong.addEventListener("ended", function () {
+      mainSong.onended = function () {
         let getText = repeatBtn.innerText;
 
         switch (getText) {
@@ -42,7 +42,7 @@ export default function clickPlaylist(myPlaylist) {
             playMusic();
             break;
         }
-      });
+      };
     });
   });
 }

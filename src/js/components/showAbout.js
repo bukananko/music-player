@@ -23,7 +23,7 @@ export default function showAbout() {
       } else if (listSong.classList.contains("hidden")) {
         listSong.classList.replace("hidden", "flex");
       }
-      filter.classList.add("hidden")
+      filter.classList.add("hidden");
       bottomPlayer.classList.toggle("hidden");
       aboutMenuContent.classList.toggle("hidden");
     }

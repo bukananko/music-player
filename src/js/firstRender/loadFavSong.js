@@ -6,6 +6,7 @@ import {
   albumCover,
   mainSong,
   tabHeader,
+  musicName,
 } from "../constants/constants.js";
 
 export default async function loadFavSong(musicIndex, favoriteUrls) {
@@ -19,6 +20,8 @@ export default async function loadFavSong(musicIndex, favoriteUrls) {
       ? uploader.slice(0, -7)
       : uploader;
     const song = audioStreams[0].url;
+
+    musicName.classList.remove("animate-marquee");
 
     musicArtist.innerText = artist;
     marquee(title);

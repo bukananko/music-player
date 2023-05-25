@@ -9,7 +9,7 @@ export default function marquee(title) {
 
   document.documentElement.style.setProperty(
     "--textWidth",
-    musicDetails.clientWidth - musicName.clientWidth - 10 + "px"
+    musicDetails.clientWidth - musicName.clientWidth - 5 + "px"
   );
 
   if (musicName.clientWidth > musicDetails.clientWidth) {

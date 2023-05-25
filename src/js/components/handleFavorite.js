@@ -33,7 +33,7 @@ export default function handleFavorite(favoriteUrls, currentFav) {
     }
   };
 
-  if (favoriteUrls.length > 0) {
+  if (favoriteUrls != null) {
     favoriteUrls.forEach((fav) => {
       if (currentFav.song === fav.song) {
         favorite.innerText = "favorite";
